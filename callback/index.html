@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="referrer" content="no-referrer">
+  <title>TikTok 連携 | 今日の一問</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main>
+  <header class="site">
+    <a class="brand" href="../">今日の一問</a>
+  </header>
+
+  <section class="card">
+    <h1>TikTok 連携</h1>
+    <div id="result"><p class="muted">読み込み中…</p></div>
+  </section>
+
+  <section class="card">
+    <p class="muted">このページは TikTok ログイン後のリダイレクト先です。URL に含まれる認可コードを表示するだけで、
+      どこにも送信・保存しません。<br>
+      This page only displays the authorization code from the URL. Nothing is sent or stored.</p>
+  </section>
+</main>
+
+<script>
+  (function () {
+    var params = new URLSearchParams(location.search);
+    var code = params.get("code");
+    var error = params.get("error");
+    var box = document.getElementById("result");
+    box.textContent = "";
+
+    function p(text, cls) {
+      var el = document.createElement("p");
+      el.textContent = text;
+      if (cls) el.className = cls;
+      box.appendChild(el);
+      return el;
+    }
+    function codeBlock(text) {
+      var el = document.createElement("div");
+      el.className = "code";
+      el.textContent = text;
+      box.appendChild(el);
+    }
+
+    if (error) {
+      p("連携に失敗しました: " + error, "err");
+      var desc = params.get("error_description");
+      if (desc) p(desc, "muted");
+      return;
+    }
+    if (!code) {
+      p("認可コードがありません。npm run tiktok:auth で表示された URL から開いてください。", "muted");
+      return;
+    }
+
+    p("✅ 許可されました。下のボタンでこのページの URL をコピーし、ターミナルの npm run tiktok:auth に貼り付けてください。", "ok");
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.textContent = "この URL をコピー";
+    box.appendChild(btn);
+    var status = p("", "muted");
+    btn.addEventListener("click", function () {
+      var url = location.href;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(
+          function () { status.textContent = "コピーしました。"; },
+          function () { status.textContent = "コピーできませんでした。下の URL を手動でコピーしてください。"; }
+        );
+      } else {
+        status.textContent = "下の URL を手動でコピーしてください。";
+      }
+    });
+    p("URL:", "muted");
+    codeBlock(location.href);
+    p("認可コードの有効期限は短い（数分程度）ので、すぐに貼り付けてください。", "muted");
+  })();
+</script>
+</body>
+</html>
