@@ -16,49 +16,65 @@
 
   <article class="card">
     <h1>プライバシーポリシー</h1>
-    <p class="muted">制定日: 2026年10月12日</p>
-    <p>「今日の一問」（以下「本アプリ」）は、運営者が自身の TikTok アカウントへ学習動画を送るための個人運用ツールです。本アプリにおける情報の取り扱いを以下のとおり定めます。</p>
+    <p class="muted">制定日: 2026年10月12日 ／ 改定日: 2026年10月13日（YouTube への投稿に関する記載を追加）</p>
+    <p>「今日の一問」（以下「本アプリ」）は、運営者が自身の TikTok アカウントおよび YouTube チャンネルへ学習動画を投稿するための個人運用ツールです。本アプリにおける情報の取り扱いを以下のとおり定めます。</p>
 
     <h2>1. 取得する情報</h2>
     <ul>
-      <li>TikTok との連携時に発行されるアクセストークン・リフレッシュトークン</li>
-      <li>連携した TikTok アカウントの基本情報（<code>user.info.basic</code> の範囲：Open ID、表示名など）</li>
+      <li>TikTok との連携時に発行されるアクセストークン・リフレッシュトークン、および連携した TikTok アカウントの基本情報（<code>user.info.basic</code> の範囲：Open ID、表示名など）</li>
+      <li>Google（YouTube）との連携時に発行されるアクセストークン・リフレッシュトークン（スコープ <code>youtube.upload</code> のみ）</li>
+      <li>アップロードした YouTube 動画の動画 ID</li>
     </ul>
     <p>本アプリは運営者本人のアカウントのみと連携し、それ以外の利用者の個人情報は取得しません。</p>
 
     <h2>2. 利用目的</h2>
-    <p>取得した情報は、本アプリが作成した動画を運営者自身の TikTok アカウントの受信箱（下書き）に送信する目的にのみ使用します。</p>
+    <p>取得した情報は、本アプリが作成した動画を、運営者自身の TikTok アカウントの受信箱（下書き）に送信すること、および運営者自身の YouTube チャンネルにアップロードすることにのみ使用します。</p>
 
-    <h2>3. 保管方法</h2>
-    <p>トークンは GitHub Actions の暗号化されたシークレットに保管し、公開されることはありません。動画送信の処理中のみ使用し、その他の場所には保存しません。</p>
+    <h2>3. YouTube API サービスの利用</h2>
+    <p>本アプリは YouTube API サービスを利用して動画をアップロードします。本アプリを利用することで、<a href="https://www.youtube.com/t/terms">YouTube 利用規約</a>に同意したものとみなされます。Google による情報の取り扱いについては <a href="https://policies.google.com/privacy">Google プライバシーポリシー</a>をご確認ください。</p>
+    <p>本アプリが YouTube から取得する情報は、アップロードした動画の ID のみです。チャンネルの他の動画・コメント・分析データなどにはアクセスしません。</p>
 
-    <h2>4. 第三者提供</h2>
+    <h2>4. 保管方法</h2>
+    <p>トークンは GitHub Actions の暗号化されたシークレットに保管し、公開されることはありません。動画送信の処理中のみ使用し、その他の場所には保存しません。動画 ID は重複投稿を避けるための出題履歴としてリポジトリに記録します。</p>
+
+    <h2>5. 第三者提供</h2>
     <p>法令に基づく場合を除き、取得した情報を第三者に提供・販売することはありません。</p>
 
-    <h2>5. 連携の解除</h2>
-    <p>TikTok アプリの「設定とプライバシー」→「セキュリティと権限」→「アプリとサービスの権限」から、いつでも本アプリとの連携を解除できます。解除後、保管しているトークンは使用できなくなります。</p>
+    <h2>6. 連携の解除</h2>
+    <ul>
+      <li>TikTok: アプリの「設定とプライバシー」→「セキュリティと権限」→「アプリとサービスの権限」から解除できます。</li>
+      <li>YouTube（Google）: <a href="https://myaccount.google.com/permissions">Google アカウントのセキュリティ設定（サードパーティのアクセス）</a>から、いつでもアクセスを削除できます。</li>
+    </ul>
+    <p>解除後、保管しているトークンは使用できなくなります。</p>
 
-    <h2>6. お問い合わせ</h2>
+    <h2>7. お問い合わせ</h2>
     <p>本ポリシーに関するお問い合わせは、<a href="https://github.com/photon4499/short-movie_remotion/issues">GitHub の Issues</a> までお寄せください。</p>
 
-    <h2>7. 改定</h2>
+    <h2>8. 改定</h2>
     <p>本ポリシーは必要に応じて改定することがあります。改定後の内容は本ページに掲載した時点で効力を生じます。</p>
   </article>
 
   <article class="card" lang="en">
     <h1>Privacy Policy</h1>
-    <p class="muted">Effective date: October 12, 2026</p>
-    <p>"Kyou no Ichimon" (the "App") is a personal tool used by its operator to send educational videos to the operator's own TikTok account.</p>
+    <p class="muted">Effective date: October 12, 2026 / Last updated: October 13, 2026 (added YouTube)</p>
+    <p>"Kyou no Ichimon" (the "App") is a personal tool used by its operator to publish educational videos to the operator's own TikTok account and YouTube channel.</p>
     <h2>Information we collect</h2>
-    <p>Access and refresh tokens issued by TikTok, and basic account information within the <code>user.info.basic</code> scope (such as Open ID and display name) of the operator's own account. The App does not collect information from any other user.</p>
+    <ul>
+      <li>Access and refresh tokens issued by TikTok, and basic account information within the <code>user.info.basic</code> scope (such as Open ID and display name) of the operator's own account.</li>
+      <li>Access and refresh tokens issued by Google for the <code>youtube.upload</code> scope only.</li>
+      <li>The IDs of the videos the App uploads to YouTube.</li>
+    </ul>
+    <p>The App does not collect information from any other user.</p>
     <h2>How we use it</h2>
-    <p>Solely to upload videos created by the App to the operator's own TikTok inbox as drafts (<code>video.upload</code>).</p>
+    <p>Solely to upload videos created by the App to the operator's own TikTok inbox as drafts (<code>video.upload</code>) and to the operator's own YouTube channel (<code>videos.insert</code>).</p>
+    <h2>YouTube API Services</h2>
+    <p>The App uses YouTube API Services. By using the App, you agree to be bound by the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>. See the <a href="https://policies.google.com/privacy">Google Privacy Policy</a> for how Google handles data. The only YouTube data the App keeps is the ID of each uploaded video; it does not access other videos, comments, or analytics.</p>
     <h2>Storage</h2>
-    <p>Tokens are stored as encrypted GitHub Actions secrets and are used only while uploading a video.</p>
+    <p>Tokens are stored as encrypted GitHub Actions secrets and are used only while uploading a video. Uploaded video IDs are kept in the repository's history file to avoid duplicate topics.</p>
     <h2>Sharing</h2>
     <p>We do not sell or share any information with third parties, except as required by law.</p>
     <h2>Revoking access</h2>
-    <p>You can revoke the App's access at any time from TikTok: Settings and privacy → Security and permissions → App and services permissions.</p>
+    <p>TikTok: Settings and privacy → Security and permissions → App and services permissions. Google / YouTube: <a href="https://myaccount.google.com/permissions">Google security settings (third-party access)</a>.</p>
     <h2>Contact</h2>
     <p>Please contact us via <a href="https://github.com/photon4499/short-movie_remotion/issues">GitHub Issues</a>.</p>
   </article>
